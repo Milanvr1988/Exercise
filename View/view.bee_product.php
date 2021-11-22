@@ -1,6 +1,7 @@
 <?php require "Partials/header.php"; ?>
 
 <?php foreach($all_be_product as $be_product ): ?>
+<!-- Ovde preko a taga saljem na URL kljuv pod nazivom id_beeProduct koji je povezan sa tabelom Bee_product u bazi i od svakog podatka u bazi trazim njegov id. -->
 <a href="singl.drink.php?id_beeProduct=<?php echo $be_product->id; ?> " class="nav-link">
 <div class="container">
     <div class="row">
