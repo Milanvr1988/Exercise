@@ -1,6 +1,6 @@
 <?php 
 
-class Posts extends Connection 
+class Posts
 {   
     public $alertPost = null;
 
@@ -34,32 +34,6 @@ class Posts extends Connection
         $getPost = $query->fetchall(PDO::FETCH_OBJ);
         // var_dump($getPost);
         return $getPost;
-    }
-    public function SelectSinglPost($table)
-    {
-
-        // Ovo $table koja prima argumente je samo ime koje mi oznacava da ta funkcija prima podatke iz tabele u bazi. Kada pozovem metodu ona mi trazi da moram da posaljem podatak
-        // za $table, a ja saljem ovde podatke iz fajla singl.drink.php.
-
-
-
-        // Ovde sam  dao dve varijable, dva podatka. Ova funkcija radi i otvara sve singl kartice za drink i za bee_product iz baze ali izbazi obavestenje koje izgleda ovako:
-        // Notice: Undefined index: id_beeProduct in C:\xampp\htdocs\AloeQuestion\Class\Posts.php on line 49   -   da kada otvorim 
-        // npr karticu na sajtu drink - napici kako je u sajtu on otvori i pita me koja je to varijabla $id_bee isto se desava i kada bude suprotno. Moje pitanje glasi 
-        // da li mogu u jednoj funkciji da ima ova dva podatka koja su prikazana :
-        // $id i $id_bee da bi mi jedan funkcija resavala otvaranje singl kartice. Resenje imam ali sam hteo da sto vise uprostim cod.
-        $id = $_GET['id'];
-        $id_bee = $_GET['id_beeProduct'];
-
-
-        $sql = "SELECT * FROM {$table} WHERE id = ? OR id = ?";
-        $query = $this->db->prepare($sql);
-        $query->execute([$id,$id_bee]);
-        $singlPost = $query->fetch(PDO::FETCH_OBJ);
-        // var_dump($singlPost);
-        return $singlPost;
-            
-
     }
 }
 

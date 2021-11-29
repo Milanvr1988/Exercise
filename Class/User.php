@@ -1,6 +1,6 @@
 <?php 
 
-class User extends Connection 
+class User
 {
     public $registerPopUp = null;
     public $alertForm = null;
